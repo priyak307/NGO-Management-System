@@ -1,0 +1,261 @@
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[CashReceiptTable]    Script Date: 02/26/2024 00:28:52 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CashReceiptTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ReceiptNo] [nvarchar](50) NULL,
+	[DonorName] [nvarchar](50) NULL,
+	[DonationDate] [date] NULL,
+	[PaymentMode] [nvarchar](50) NULL,
+	[Amount] [int] NULL,
+	[Notes] [nvarchar](max) NULL,
+	[NGOName] [nvarchar](50) NULL,
+	[NGOType] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[ContactTable]    Script Date: 02/26/2024 00:28:59 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ContactTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[Subject] [nvarchar](50) NULL,
+	[Message] [nvarchar](max) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[DonorDonationTable]    Script Date: 02/26/2024 00:29:04 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DonorDonationTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NgoName] [nvarchar](50) NULL,
+	[DonorName] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[MobileNo] [nvarchar](50) NULL,
+	[Donate] [nvarchar](max) NULL,
+	[Status] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[DonorEventTable]    Script Date: 02/26/2024 00:29:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DonorEventTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NgoName] [nvarchar](50) NULL,
+	[DonorName] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[MobileNo] [nvarchar](50) NULL,
+	[Event] [nvarchar](max) NULL,
+	[Status] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[DonorRegisterTable]    Script Date: 02/26/2024 00:29:20 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DonorRegisterTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[MiddleName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
+	[Gender] [nvarchar](50) NULL,
+	[MobileNumber] [nvarchar](10) NULL,
+	[Address] [nvarchar](max) NULL,
+	[State] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[Pincode] [nvarchar](50) NULL,
+	[EmailID] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[GoodReceiptTable]    Script Date: 02/26/2024 00:29:26 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[GoodReceiptTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ReceiptNo] [nvarchar](50) NULL,
+	[DonorName] [nvarchar](50) NULL,
+	[DonationDate] [date] NULL,
+	[DonationType] [nvarchar](50) NULL,
+	[Quantity] [int] NULL,
+	[Describe] [nvarchar](max) NULL,
+	[NGOName] [nvarchar](50) NULL,
+	[NGOType] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[LoginTable]    Script Date: 02/26/2024 00:29:31 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[LoginTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[EmailId] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL,
+	[UserType] [char](1) NULL,
+	[Status] [nvarchar](50) NULL,
+	[Name] [nvarchar](50) NULL,
+	[NGOType] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[NgoRegisterTable]    Script Date: 02/26/2024 00:29:37 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[NgoRegisterTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NgoName] [nvarchar](50) NULL,
+	[RegistrationNo] [nvarchar](50) NULL,
+	[RegistrationDate] [date] NULL,
+	[NgoAdministrator] [nvarchar](50) NULL,
+	[NgoType] [nvarchar](50) NULL,
+	[NgoAddress] [nvarchar](max) NULL,
+	[ContactNo] [nvarchar](10) NULL,
+	[NgoDocument] [varbinary](max) NULL,
+	[ContentType] [nvarchar](50) NULL,
+	[NgoDocumentName] [nvarchar](50) NULL,
+	[EmailId] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[UserTable]    Script Date: 02/26/2024 00:29:42 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[UserTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FullName] [nvarchar](50) NULL,
+	[Address] [nvarchar](max) NULL,
+	[Email] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL,
+	[Gender] [nvarchar](50) NULL,
+	[DateOfBirth] [date] NULL,
+	[MobileNo] [nvarchar](50) NULL,
+	[Image] [varbinary](max) NULL,
+	[ContentType] [varchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [OnlineNGODonation]
+GO
+
+/****** Object:  Table [dbo].[VolunteerRegisterTable]    Script Date: 02/26/2024 00:29:47 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[VolunteerRegisterTable](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NGOName] [nvarchar](50) NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
+	[MobileNumber] [nvarchar](10) NULL,
+	[Address] [nvarchar](max) NULL,
+	[State] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[Pincode] [nvarchar](50) NULL,
+	[Skillsets] [nvarchar](max) NULL,
+	[DaysOfWork] [nvarchar](max) NULL,
+	[Commets] [nvarchar](max) NULL,
+	[Status] [nvarchar](50) NULL,
+	[EmailId] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
